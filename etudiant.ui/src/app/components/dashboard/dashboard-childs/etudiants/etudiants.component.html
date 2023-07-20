@@ -1,0 +1,286 @@
+<style>
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        outline: none;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+    }
+  
+    html {
+        overflow-y: scroll;
+    }
+  
+    body {
+        background: #eee url('https://i.imgur.com/eeQeRmk.png');
+        font-size: 62.5%;
+        line-height: 1;
+        padding: 22px 10px;
+        padding-bottom: 55px;
+    }
+  
+    img {
+        border: 0;
+        max-width: 100%;
+    }
+  
+    h1 {
+        font-weight: bold;
+        font-size: 3.6em;
+        line-height: 1.7em;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 4px 0;
+        color: #4285F4;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+  
+    #wrapper {
+        display: block;
+        width: 850px;
+        background: #fff;
+        margin: 0 auto;
+        padding: 10px 17px;
+        -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35);
+    }
+  
+    #table {
+        margin: 0 auto;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+  
+    #table thead {
+        cursor: pointer;
+        background: #4285F4;
+    }
+  
+    #table thead tr th {
+        font-weight: bold;
+        padding: 12px 30px;
+        padding-left: 42px;
+    }
+  
+    #table thead tr th span {
+        padding-right: 18px;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        color: white;
+    }
+  
+    #table tbody tr {
+        color: #555;
+    }
+  
+    #table tbody tr td {
+        text-align: center;
+        padding: 15px 10px;
+        margin: 0 0 10px;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
+  
+    #table tbody tr td.lalign {
+        text-align: left;
+    }
+  
+    #edit {
+        outline: none;
+        background: #f4b642;
+        width: 40%;
+        border: 0;
+        border-radius: 4px;
+        padding: 7px 15px;
+        color: #FFFFFF;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+        line-height: inherit;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+  
+    #del {
+        outline: none;
+        background: #f44242;
+        border: 0;
+        border-radius: 4px;
+        padding: 6px 15px;
+        color: #FFFFFF;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+        line-height: inherit;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-left: 5px;
+        text-decoration: none;
+    }
+    
+    #add{
+      outline: none;
+      background: #000000;
+      border: 0;
+      border-radius: 15px;
+      padding: 5px 8px;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 500;
+      line-height: inherit;
+      cursor: pointer;
+      margin-right: -20px;
+      font-weight: bold;
+  }
+  ul.unstyled.centered {
+    list-style: none;
+    padding: 30px 5px;
+}
+input.styled-checkbox {
+    margin: 10px;
+}
+button.close {
+    border: none;
+    border-radius: 50%;
+}
+
+button.btn.btn-warning {
+    color: white;
+}
+.styled-checkbox {
+    width: 23px;
+    height: 23px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2.5px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.styled-checkbox:checked {
+    background-color: #198754;
+}
+  </style>
+  <app-navbar></app-navbar>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
+
+<ng-template #tmp >
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1>{{etudiant.firstName}} {{etudiant.lastName}}</h1>
+            <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="inputField">First Name</label>
+                <input  [(ngModel)]="etudiant.firstName" type="text" class="form-control" id="inputField">
+                <label for="inputField">Last Name</label>
+                <input  [(ngModel)]="etudiant.lastName" type="text" class="form-control" id="inputField">
+                <label for="inputField">Departement</label>
+                <input  [(ngModel)]="etudiant.deparetement" type="text" class="form-control" id="inputField">
+                <label for="inputField">Class</label>
+                <input  [(ngModel)]="etudiant.class" type="text" class="form-control" id="inputField">
+              </div>
+              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="updateEtd(etudiant);modalRef.hide()" *ngIf="etudiant.id">SAVE</button>
+            <button type="button" class="btn btn-warning" (click)="createEtd(etudiant);modalRef.hide()" *ngIf="!etudiant.id">CREATE</button>
+          </div>
+    </div>
+  
+</ng-template>
+
+<ng-template #pdf  >
+    <div class="modal-content">
+        <div class="modal-header">
+       
+            <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <ul class="unstyled centered">
+                    <li>
+                      <input class="styled-checkbox" type="checkbox" value="1" checked disabled>
+                      <label for="styled-checkbox-1">ID</label>
+                    </li>
+                    <li>
+                      <input class="styled-checkbox" type="checkbox" value="2" (change)="handleCheckboxChange($event)">
+                      <label for="styled-checkbox-2">First Name</label>
+                    </li>
+                    <li>
+                    <input class="styled-checkbox" type="checkbox" value="3" (change)="handleCheckboxChange($event)">
+                    <label for="styled-checkbox-3">Last Name</label>
+                    </li>
+                    <li>
+                      <input class="styled-checkbox" type="checkbox" value="4" (change)="handleCheckboxChange($event)">
+                      <label for="styled-checkbox-4">Departement</label>
+                    </li>
+                    <li>
+                        <input class="styled-checkbox" type="checkbox" value="5" (change)="handleCheckboxChange($event)">
+                        <label for="styled-checkbox-4">Class</label>
+                      </li>
+                  </ul>
+
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="exportPdf(selectedDataCols);modalRef.hide()">Export PDF</button>
+            <button class="btn btn-secondary" (click)="exportXlsx(selectedDataCols);modalRef.hide()">Export EXEL</button>
+
+          </div>
+    </div>
+  
+</ng-template>
+  <body *ngIf="(authService.isLoggedIn$ | async) === true">
+    <div id="wrapper">
+        <alert [type]="alertType" [dismissOnTimeout]="2000" *ngIf="alertVisible" (onClose)="closeAlert()">
+            {{ alertMessage }}
+        </alert>
+        <h1>Tableau des etudiants</h1>
+        <table id="table" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>                    
+                    <th><span>First Name</span></th>
+                    <th><span>Last Name</span></th>
+                    <th><span>Departement</span></th>
+                    <th><span>Class</span></th>
+                    <th><span>Action</span><button id="add" (click)="razEtudiant();openDialoge(tmp)">+</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let etudiant of etds">
+                    <td>{{etudiant.id}}</td>
+                    <td>{{etudiant.firstName}}</td>
+                    <td>{{etudiant.lastName}}</td>
+                    <td>{{etudiant.deparetement}}</td>
+                    <td>{{etudiant.class}}</td>
+                    <button id="edit" (click)="openDialoge(tmp);editEtudiant(etudiant);">Edit</button>
+                    <a routerLink="/etudiants" id="del" (click)="deleteEtd(etudiant)">Delete</a>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="openDialoge(pdf);openPopUp()">Export List</button>
+    </div>      
+  </body>

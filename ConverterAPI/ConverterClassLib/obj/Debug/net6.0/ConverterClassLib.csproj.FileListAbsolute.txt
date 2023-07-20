@@ -1,0 +1,12 @@
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\bin\Debug\net6.0\ConverterClassLib.deps.json
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\bin\Debug\net6.0\ConverterClassLib.dll
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\bin\Debug\net6.0\ConverterClassLib.pdb
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.csproj.AssemblyReference.cache
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.AssemblyInfoInputs.cache
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.AssemblyInfo.cs
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.csproj.CoreCompileInputs.cache
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.dll
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\refint\ConverterClassLib.dll
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ConverterClassLib.pdb
+C:\Users\ALADIN442\source\repos\ConverterAPI\ConverterClassLib\obj\Debug\net6.0\ref\ConverterClassLib.dll
